@@ -22,7 +22,7 @@ const main = async () => {
     console.log('=== env', MONGO_URL, API_PORT);
 
     await mongoose.connect(
-        MONGO_URL
+        MONGO_URL as string
     ).then((dbConnection)=>{
         db = dbConnection;
     });

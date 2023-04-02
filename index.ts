@@ -16,10 +16,10 @@ let db;
 const main = async () => {
     const {
         MONGO_URL,
-        PORT,
+        API_PORT,
     } = process.env;
 
-    console.log('=== env', MONGO_URL, PORT);
+    console.log('=== env', MONGO_URL, API_PORT);
 
     await mongoose.connect(
         MONGO_URL
@@ -125,8 +125,8 @@ const main = async () => {
         res.status(200).send();
     });
 
-    app.listen(Number(PORT), () => {
-        console.log(`api-casamento listening on port ${PORT}`);
+    app.listen(Number(API_PORT), () => {
+        console.log(`api-casamento listening on port ${API_PORT}`);
     })
 }
 

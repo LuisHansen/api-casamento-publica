@@ -2,12 +2,14 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import * as mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import { ALL_CONVIDADOS, RSVP } from './routes.js';
 import {Familia, FamiliaSchema} from './listaDeFamilias';
 
 dotenv.config();
 const app = express();
+app.use(cors())
 
 const jsonParser = bodyParser.json()
 
@@ -16,7 +18,7 @@ let db;
 const main = async () => {
     const {
         MONGO_URL,
-        API_PORT,
+        API_PORT = 8000,
     } = process.env;
 
     console.log('=== env', MONGO_URL, API_PORT);
